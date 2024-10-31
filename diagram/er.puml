@@ -1,0 +1,34 @@
+@startuml
+
+entity Usuario {
+    ** id: int <<PK>> **
+    --
+    ** nombre: varchar(25) **
+}
+
+entity Tarea {
+    ** id: int <<PK>> **
+    ** id_categoria: int <<FK>> **
+    ** id_usuario: int <<FK>> **
+    --
+    ** titulo: varchar(128) **
+    ** estado: boolean **
+    ** fecha: int(8) **
+}
+
+entity Categoria {
+    ** id: int <<PK>> **
+    --
+    ** titulo: varchar(25) **
+}
+
+<> diamond
+<> diamond2
+
+Usuario  "0,1" -r- diamond
+Tarea  "0,N" -l- diamond
+
+Tarea  "0,N" -r- diamond2
+Categoria  "0,1" -l- diamond2
+
+@enduml

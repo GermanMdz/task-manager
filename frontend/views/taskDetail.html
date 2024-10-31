@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <a href="/" class="btn btn-secondary">Inicio</a>
+        <h1 class="text-center">Detalle de la tarea</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Usuario</th>
+                    <th>Categoria</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="task-list">
+                <!-- TASK_DETAIL -->
+            </tbody>
+        </table>
+        <form id="action" method="POST">
+            <button class="btn btn-success" type="submit">Marcar como completada</button>
+        </form>
+    </div>
+
+    <script>
+        const currentPath = window.location.pathname;
+        const link = document.getElementById('action');
+        link.action = currentPath + "/completed"; 
+    </script>
+</body>
+</html>
